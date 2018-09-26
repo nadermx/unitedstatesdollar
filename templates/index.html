@@ -34,10 +34,30 @@
     </nav>
 </div>
 <div class="container">
-    {% for c in currency['results'] %}
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2">Symbol</div>
+            <div class="col-sm-3">Name</div>
 
-    <div class="col-12-sm">
-        <div>{{c}}</div>
+            <div class="col-sm-2">Price</div>
+            <div class="col-sm-2">Change (24h)</div>
+            <div class="col-sm-3">Price Graph (7d)</div>
+        </div>
+
+    </div>
+    {% for c in currency['results'] %}
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2">{{currency['results'][c]['currencySymbol']}}
+            </div>
+            <div class="col-sm-3">{{currency['results'][c]['currencyName']}}</div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3"></div>
+
+        </div>
+
+
     </div>
     {%endfor%}
 </div>
