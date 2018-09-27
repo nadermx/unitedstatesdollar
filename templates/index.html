@@ -61,9 +61,16 @@
             <div class="col-sm-2"><span>{{currency[c]['currencySymbol']}}</span></div>
             <div class="col-sm-3"><span><strong>{{c}} </strong>{{currency[c]['currencyName']}}</span></div>
             <div class="col-sm-2">{{currency[c]['price']}}</div>
-            <div class="col-sm-2">{{ (100*(currency[c]['price'] -
+                                {% if (100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']) > 0 %}
+
+            <div class="col-sm-2 green">{{ (100*(currency[c]['price'] -
                 currency[c]['price_yesterday'])/currency[c]['price_yesterday'])|round(3)}}%
             </div>
+            {% else %}
+                        <div class="col-sm-2 red">{{ (100*(currency[c]['price'] -
+                currency[c]['price_yesterday'])/currency[c]['price_yesterday'])|round(3)}}%
+            </div>
+            {%endif%}
             <div class="col-sm-3"><img src="/static/{{c}}.png" style="max-width:200px"></div>
         </div>
     </div>
@@ -86,9 +93,15 @@
             </div>
             <div class="col-xs-2">
                 <div class="card">
-                    <div class="card-body">{{ (100*(currency[c]['price'] -
+                    {% if (100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']) > 0 %}
+                    <div class="card-body green">{{ (100*(currency[c]['price'] -
                         currency[c]['price_yesterday'])/currency[c]['price_yesterday'])|round(3)}}%
                     </div>
+                    {% else %}
+                    <div class="card-body red">{{ (100*(currency[c]['price'] -
+                        currency[c]['price_yesterday'])/currency[c]['price_yesterday'])|round(3)}}%
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-xs-3"></div>

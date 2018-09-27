@@ -5,3 +5,11 @@ body {
 nav {
     background-color:black;
 }
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}

@@ -28,7 +28,7 @@ def plot():
             days.append(k)
             values.append(v)
         print(days, values)
-        plt.plot_date(x=days, y=values, fmt="r-")
+        plt.plot_date(x=days, y=values, fmt="g-")
         plt.ylabel(c)
         plt.axis('tight');
         plt.savefig('static/%s.png' % c)
