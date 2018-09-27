@@ -15,25 +15,5 @@ def index():
     return render_template('index.html', currency=json.loads(currency))
 
 
-
-@app.route('/plot')
-def plot():
-    currency = json.loads(r.get('currency'))
-    for c in currency:
-        print(c)
-        currency[c]['seven_days_price']
-        days = []
-        values = []
-        for k, v in currency[c]['seven_days_price'].items():
-            days.append(k)
-            values.append(v)
-        print(days, values)
-        plt.plot_date(x=days, y=values, fmt="g-")
-        plt.ylabel(c)
-        plt.axis('tight');
-        plt.savefig('static/%s.png' % c)
-    return "ok"
-
-
 if __name__ == '__main__':
     app.run(debug=True)

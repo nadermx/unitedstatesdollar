@@ -25,6 +25,16 @@ for c in currency:
     currency[c]['price'] = price.json()['results']['USD_%s' % c.upper()]['val']
     currency[c]['price_yesterday'] = list(price_yesterday.json()['USD_%s' % c.upper()].values())[0]
     currency[c]['seven_days_price'] = seven_day_price.json()['USD_%s' % c.upper()]
+    days = []
+    values = []
+    for k, v in currency[c]['seven_days_price'].items():
+        days.append(k)
+        values.append(v)
+    plt.plot_date(x=days, y=values, fmt="y-")
+    plt.ylabel(c)
+    plt.axis('tight');
+    plt.savefig('static/%s.png' % c)
+    plt.close()
 currency = json.dumps(currency)
 r.set('currency', currency)
 # r.expireat('currency', end_of_day)
