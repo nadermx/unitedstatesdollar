@@ -18,18 +18,18 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-fade fixed-top">
         <a class="navbar-brand" href="/">United States Dollar</a>
         <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"-->
-                <!--aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">-->
-            <!--<span class="navbar-toggler-icon"></span>-->
+        <!--aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">-->
+        <!--<span class="navbar-toggler-icon"></span>-->
         <!--</button>-->
         <!--<div class="collapse navbar-collapse" id="navbarsExampleDefault">-->
-            <!--<ul class="navbar-nav mr-auto">-->
-            <!--</ul>-->
-            <!--<li class="nav-item">-->
-                <!--<a class="nav-link" href="/login">Login</a>-->
-            <!--</li>-->
-            <!--<li class="nav-item">-->
-                <!--<a class="nav-link" href="/signup">Sign Up</a>-->
-            <!--</li>-->
+        <!--<ul class="navbar-nav mr-auto">-->
+        <!--</ul>-->
+        <!--<li class="nav-item">-->
+        <!--<a class="nav-link" href="/login">Login</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--<a class="nav-link" href="/signup">Sign Up</a>-->
+        <!--</li>-->
         <!--</div>-->
     </nav>
 </div>
@@ -61,17 +61,18 @@
             <div class="col-sm-2"><span>{{currency[c]['currencySymbol']}}</span></div>
             <div class="col-sm-3"><span><strong>{{c}} </strong>{{currency[c]['currencyName']}}</span></div>
             <div class="col-sm-2">{{currency[c]['price']}}</div>
-                                {% if (100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']) > 0 %}
+            {% if (100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']) > 0 %}
 
             <div class="col-sm-2 green">{{ (100*(currency[c]['price'] -
                 currency[c]['price_yesterday'])/currency[c]['price_yesterday'])|round(3)}}%
             </div>
             {% else %}
-                        <div class="col-sm-2 red">{{ (100*(currency[c]['price'] -
+            <div class="col-sm-2 red">{{ (100*(currency[c]['price'] -
                 currency[c]['price_yesterday'])/currency[c]['price_yesterday'])|round(3)}}%
             </div>
             {%endif%}
-            <div class="col-sm-3"><img src="/static/{{c}}.png" style="max-width:200px"></div>
+            <div class="col-sm-3"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                       data-src="/static/{{c}}.png" style="max-width:200px"></div>
         </div>
     </div>
     <div class="col-xs-12 d-block d-sm-none">
@@ -93,7 +94,8 @@
             </div>
             <div class="col-xs-2">
                 <div class="card">
-                    {% if (100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']) > 0 %}
+                    {% if (100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']) >
+                    0 %}
                     <div class="card-body green">{{ (100*(currency[c]['price'] -
                         currency[c]['price_yesterday'])/currency[c]['price_yesterday'])|round(3)}}%
                     </div>
@@ -117,7 +119,19 @@
 {% block scripts %}
 <script type="text/javascript" src="/static/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+function init() {
+  var imgDefer = document.getElementsByTagName('img');
+  for (var i = 0; i < imgDefer.length; i++) {
+    if (imgDefer[i].getAttribute('data-src')) {
+      imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+    }
+  }
+}
 
+window.onload = init;
+
+</script>
 {% endblock %}
 </body>
 </html>
