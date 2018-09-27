@@ -12,15 +12,6 @@ r = redis.StrictRedis(host='localhost', port=6379, db=0)
 @app.route('/')
 def index():
     currency = r.get('currency')
-    currency[c]['seven_days_price']
-    days = []
-    values = []
-    for k, v in currency[c]['seven_days_price'].items():
-        days.append(k)
-        values.append(v)
-    plt.plot_date(x=days, y=values, fmt="r-")
-    plt.ylabel(c)
-    plt.savefig('static/%s.png' % c)
     return render_template('index.html', currency=json.loads(currency))
 
 
@@ -38,7 +29,6 @@ def plot():
         plt.plot_date(x=days, y=values, fmt="r-")
         plt.ylabel(c)
         plt.savefig('static/%s.png' % c)
-        break
     return "ok"
 
 
