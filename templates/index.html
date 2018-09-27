@@ -61,7 +61,7 @@
             <div class="col-sm-2"><span>{{currency[c]['currencySymbol']}}</span></div>
             <div class="col-sm-3"><span>{{currency[c]['currencyName']}}</span></div>
             <div class="col-sm-2">{{currency[c]['price']}}</div>
-            <div class="col-sm-2">{{ 100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']}}%</div>
+            <div class="col-sm-2">{{ 100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']|round(1, 'ceil')}}%</div>
             <div class="col-sm-3"></div>
         </div>
     </div>
