@@ -27,4 +27,4 @@ for c in currency:
     currency[c]['seven_days_price'] = seven_day_price.json()['USD_%s' % c.upper()]
 currency = json.dumps(currency)
 r.set('currency', currency)
-r.expireat('currency', end_of_day)
+# r.expireat('currency', end_of_day)
