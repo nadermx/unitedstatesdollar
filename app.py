@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import redis
 
 app = Flask(__name__)
 app.config.from_object('config')
