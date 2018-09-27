@@ -3,6 +3,9 @@ import redis
 from datetime import datetime, timedelta
 import json
 import config
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
