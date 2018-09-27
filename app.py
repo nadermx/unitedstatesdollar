@@ -20,14 +20,17 @@ def index():
 def plot():
     currency = json.loads(r.get('currency'))
     for c in currency:
+        print(c)
         currency[c]['seven_days_price']
         days = []
         values = []
         for k, v in currency[c]['seven_days_price'].items():
             days.append(k)
             values.append(v)
+        print(days, values)
         plt.plot_date(x=days, y=values, fmt="r-")
         plt.ylabel(c)
+        plt.axis('tight');
         plt.savefig('static/%s.png' % c)
     return "ok"
 
