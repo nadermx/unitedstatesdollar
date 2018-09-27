@@ -67,10 +67,10 @@
     </div>
     <div class="col-xs-12 d-block d-sm-none">
         <div class="row">
-            <div class="col-xs-2"><div class="card">{{currency[c]['currencySymbol']}}</div></div>
-            <div class="col-xs-3">{{currency[c]['currencyName']}}</div>
-            <div class="col-xs-2">{{currency[c]['price']}}</div>
-            <div class="col-xs-2">{{ 100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']}}%</div>
+            <div class="col-xs-2"><div class="card"><div class="card-body">{{currency[c]['currencySymbol']}}</div></div></div>
+            <div class="col-xs-3"><div class="card"><div class="card-body">{{currency[c]['currencyName']}}</div></div></div>
+            <div class="col-xs-2"><div class="card"><div class="card-body">{{currency[c]['price']}}</div></div></div>
+            <div class="col-xs-2"><div class="card"><div class="card-body">{{ 100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']}}%</div></div></div>
             <div class="col-xs-3"></div>
         </div>
     </div>
