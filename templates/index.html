@@ -38,7 +38,7 @@
     </h1>
     <div class="col-sm-12 d-none d-sm-block">
         <div class="row">
-            <div class="col-sm-2"><strong>Symbol</strong></div>
+            <div class="col-sm-2"><strong>Currency</strong></div>
             <div class="col-sm-3"><strong>Name</strong></div>
             <div class="col-sm-2"><strong>Price</strong></div>
             <div class="col-sm-2"><strong>Change (24h</strong>)</div>
@@ -47,7 +47,7 @@
     </div>
     <div class="col-xs-12 d-block d-sm-none">
         <div class="row">
-            <div class="col-xs-2"><strong>Symbol</strong></div>
+            <div class="col-xs-2"><strong>Currency</strong></div>
             <div class="col-xs-3"><strong>Name</strong></div>
             <div class="col-xs-2"><strong>Price</strong></div>
             <div class="col-xs-2"><strong>Change (24h</strong>)</div>
@@ -58,9 +58,9 @@
     {% for c in currency %}
     <div class="col-sm-12 d-none d-sm-block">
         <div class="row">
-            <div class="col-sm-2"><span>{{currency[c]['currencySymbol']}}</span></div>
-            <div class="col-sm-3"><span><strong>{{c}} </strong>{{currency[c]['currencyName']}}</span></div>
-            <div class="col-sm-2">{{currency[c]['price']}}</div>
+            <div class="col-sm-2"><strong>{{c}} </strong></div>
+            <div class="col-sm-3"><span>{{currency[c]['currencyName']}}</span></div>
+            <div class="col-sm-2"><span>{{currency[c]['currencySymbol']}}</span>{{currency[c]['price']}}</div>
             {% if (100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']) > 0 %}
 
             <div class="col-sm-2 green">{{ (100*(currency[c]['price'] -
@@ -89,7 +89,7 @@
             </div>
             <div class="col-xs-2">
                 <div class="card">
-                    <div class="card-body">{{currency[c]['price']}}</div>
+                    <div class="card-body"><span>{{currency[c]['currencySymbol']}}</span>{{currency[c]['price']}}</div>
                 </div>
             </div>
             <div class="col-xs-2">
