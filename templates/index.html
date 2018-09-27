@@ -8,7 +8,7 @@
     <meta property="og:image" content="/static/usd.png">
     {% block head%}
     <title>{% block title %}United States Dollar{% endblock %}</title>
-    <meta name="description" content="United States Dollar (USD) charts, and more ">
+    <meta name="description" content="United States Dollar (USD) price, charts, and more ">
     {% endblock %}
     <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/main.css">
@@ -61,7 +61,7 @@
             <div class="col-sm-2"><span>{{currency[c]['currencySymbol']}}</span></div>
             <div class="col-sm-3"><span>{{currency[c]['currencyName']}}</span></div>
             <div class="col-sm-2">{{currency[c]['price']}}</div>
-            <div class="col-sm-2"></div>
+            <div class="col-sm-2">{{ 100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']}}%</div>
             <div class="col-sm-3"></div>
         </div>
     </div>
@@ -70,7 +70,7 @@
             <div class="col-xs-2">{{currency[c]['currencySymbol']}}</div>
             <div class="col-xs-3">{{currency[c]['currencyName']}}</div>
             <div class="col-xs-2">{{currency[c]['price']}}</div>
-            <div class="col-xs-2"></div>
+            <div class="col-xs-2">{{ 100*(currency[c]['price'] - currency[c]['price_yesterday'])/currency[c]['price_yesterday']}}%</div>
             <div class="col-xs-3"></div>
         </div>
     </div>
